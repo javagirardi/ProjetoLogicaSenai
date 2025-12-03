@@ -391,6 +391,3 @@ function exibeFolhaPagamento() {
     console.log("📌 Fim da folha de pagamento.");
     console.log("===========================================\n");
 }
-
-
-
