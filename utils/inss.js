@@ -14,7 +14,7 @@ export function calcularINSS(salario_bruto) {
         var desconto_inss = salario_bruto * 0.14 - 190.4;
         return desconto_inss;
     } else if (salario_bruto > 8157.41) {
-        var desconto_inss = salario_bruto - 951.62;
+        var desconto_inss = 951.62;
         return desconto_inss
     }
 

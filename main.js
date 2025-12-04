@@ -58,9 +58,9 @@ while (opcao !== 0) {
     } else if (opcao === 11) {
         exibeFolhaPagamento();
     } else if (opcao === 0) {
-        console.log("Encerrando o sistema...");
+        console.log("'That's all folks'");
     } else {
-        console.log("Opção invalida! Tente novamente.");
+        console.log("Opcao invalida! Digite um numero de 0 a 11.");
     }
     console.log("\n");
 }
@@ -71,7 +71,7 @@ function exibirMenu() {
     console.log("       SISTEMA DE GESTAO EMPRESARIAL       ");
     console.log("===========================================");
     console.log("\n             Menu Principal");
-    console.log("\n1 - Informações do Software");
+    console.log("\n1 - Informacoes do Software");
     console.log("2 - Calculadora de Salario Liquido");
     console.log("3 - Editar Dados Basicos da Empresa");
     console.log("4 - Editar Endereco da Empresa");
@@ -91,9 +91,9 @@ function informaSobreSoftware() {
     console.log("     🏦 SISTEMA DE GESTAO EMPRESARIAL 🏦     ");
     console.log("===========================================");
 
-    console.log("\nAUTOR: JAVAN GIRARDI");
+    console.log("\nAUTOR: JAVAN MOISES GIRARDI");
     console.log("\nDESCRICAO:");
-    console.log("Sistema para gerenciamento de empresas. \nRealiza o controle dos dados cadastrais e faz calculos trabalhistas, \ncomo FGTS, INSS e ferias.");
+    console.log("Sistema para gerenciamento de empresas. \nRealiza o controle dos dados cadastrais \ne faz calculos trabalhistas, como FGTS, \nINSS e ferias.");
 
     console.log("\n===========================================");
     console.log("           🛠️  FUNCIONALIDADES 🛠️               ");
@@ -108,8 +108,8 @@ function informaSobreSoftware() {
     console.log("\n🧩 EDITAR AREAS DE ATUACAO\n >Cadastra ate quatro areas de atuacao");
     console.log("\n🏢 EXIBIR INFORMACOES DA EMPRESA\n >Exibe os dados cadastrais da empresa, Areas de Atuacao,\n >Exibe as metas mensais e anuais, Endereco e Contatos");
     console.log("\n👤 CADASTRAR NOVO FUNCIONARIO\n >Cadastra Nome, CPF, Genero, Estado Civil, Idade e Salario Bruto");
-    console.log("\n👥 EXIBIR QUADRO DE FUNCIONARIOS\n >Exibe a quantidade e lista todos os funcionarios");
-    console.log("\n📑 EXIBIR FOLHA DE PAGAMENTO\n >Exibe folha de pagamento completa dos funcionarios");
+    console.log("\n👥 EXIBIR QUADRO DE FUNCIONARIOS\n >Exibe a quantidade e lista todos os funcionarios cadastrados");
+    console.log("\n📑 EXIBIR FOLHA DE PAGAMENTO\n >Exibe folha de pagamento completa de todos os funcionarios");
     console.log("\n❌ SAIR DO SISTEMA\n >Encerra o Sistema\n");
 }
 
@@ -135,7 +135,7 @@ function calculaSalarioLiquido() {
     console.log(`Desconto IRRF:     R$ ${descontoIR.toFixed(2)}`);
     console.log(`Desconto FGTS:     R$ ${valorFGTS.toFixed(2)}`)
     console.log("-------------------------------------------");
-    console.log(`Salário Liquido:   R$ ${salario_liquido.toFixed(2)}\n`);
+    console.log(`Salario Liquido:   R$ ${salario_liquido.toFixed(2)}\n`);
 
     console.log("\n===========================================");
     console.log("         🤓 FORMULA DO CALCULO 🤓     ");
@@ -319,21 +319,21 @@ function exibeQuadroFuncionarios() {
     console.log("===========================================\n");
 
     if (empresa.funcionarios.length === 0) {
-        console.log("Nenhum funcionário cadastrado ainda.");
+        console.log("Nenhum funcionario cadastrado ainda.");
         return;
     }
 
-    console.log("Quantidade total de funcionários:", empresa.funcionarios.length);
+    console.log("Quantidade total de funcionarios:", empresa.funcionarios.length);
 
-    console.log("\nPrimeiro funcionário da lista:");
+    console.log("\nPrimeiro funcionario da lista:");
     var primeiro = empresa.funcionarios[0];
-    console.log(`- Nome: ${primeiro.nome}, CPF: ${primeiro.cpf}, Salário: R$ ${primeiro.salario_bruto.toFixed(2)}`);
+    console.log(`- Nome: ${primeiro.nome}, CPF: ${primeiro.cpf}, Salario: R$ ${primeiro.salario_bruto.toFixed(2)}`);
 
-    console.log("\nÚltimo funcionário da lista:");
+    console.log("\nUltimo funcionario da lista:");
     var ultimo = empresa.funcionarios[empresa.funcionarios.length - 1];
-    console.log(`- Nome: ${ultimo.nome}, CPF: ${ultimo.cpf}, Salário: R$ ${ultimo.salario_bruto.toFixed(2)}`);
+    console.log(`- Nome: ${ultimo.nome}, CPF: ${ultimo.cpf}, Salario: R$ ${ultimo.salario_bruto.toFixed(2)}`);
 
-    console.log("\nLista completa de funcionários:\n");
+    console.log("\nLista completa de funcionarios:\n");
 
     for (var i = 0; i < empresa.funcionarios.length; i++) {
         var func = empresa.funcionarios[i];
@@ -341,7 +341,7 @@ function exibeQuadroFuncionarios() {
         console.log(
             `${i + 1} - Nome: ${func.nome} | CPF: ${func.cpf} | Gênero: ${func.genero} | ` +
             `Estado Civil: ${func.estado_civil} | Idade: ${func.idade} | ` +
-            `Salário Bruto: R$ ${func.salario_bruto.toFixed(2)}`
+            `Salario Bruto: R$ ${func.salario_bruto.toFixed(2)}`
         );
     }
 
@@ -354,7 +354,7 @@ function exibeFolhaPagamento() {
     console.log("===========================================\n");
 
     if (empresa.funcionarios.length === 0) {
-        console.log("Nenhum funcionário cadastrado para gerar a folha.");
+        console.log("Nenhum funcionario cadastrado para gerar a folha.");
         return;
     }
 
@@ -375,16 +375,16 @@ function exibeFolhaPagamento() {
         var salario_liquido = salario_bruto - descontoINSS - descontoIR;
         var ferias = calcularFerias(salario_bruto);
 
-        console.log(`👤 Funcionário ${i + 1}`);
+        console.log(`👤 Funcionario ${i + 1}`);
         console.log("-------------------------------------------");
         console.log(`Nome: ${salBrutoFunc.nome}`);
-        console.log(`Salário Bruto:     R$ ${salario_bruto.toFixed(2)}`);
+        console.log(`Salario Bruto:     R$ ${salario_bruto.toFixed(2)}`);
         console.log(`Desconto INSS:     R$ ${descontoINSS.toFixed(2)}`);
         console.log(`Desconto IRRF:     R$ ${descontoIR.toFixed(2)}`);
         console.log(`FGTS (8%):         R$ ${fgts.toFixed(2)}`);
         console.log("-------------------------------------------\n");
-        console.log(`Salário Líquido:   R$ ${salario_liquido.toFixed(2)}`);
-        console.log(`Férias (1/3):       R$ ${ferias.toFixed(2)}`);
+        console.log(`Salario Liquido:   R$ ${salario_liquido.toFixed(2)}`);
+        console.log(`Ferias (1/3):       R$ ${ferias.toFixed(2)}`);
         console.log("-------------------------------------------\n");
     }
 
